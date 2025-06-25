@@ -4,6 +4,7 @@
   "height": 30,
   "margin-right": 16,
   "margin-left": 16,
+  "modules-left": ["hyprland/window"],
   "modules-right": ["cpu", "memory", "clock"],
   "clock": {
     "format": "{:%A %B %d  %H:%M}"
