@@ -17,6 +17,11 @@ button {
   color: #ffffff;
 }
 
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
 #clock,
 #cpu,
 #memory,
