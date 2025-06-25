@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 fpath=($ZSH_ROOT/functions $ZSH_ROOT/plugins $fpath)
-autoload -Uz $fpath[1]/*(.:t)
+autoload -Uz $fpath[1]/*(-.:t)
 zmodload zsh/complist
 zmodload zsh/zutil
 
@@ -51,15 +51,15 @@ compinit
 
 export PATH="$SCRATCH_BIN:$PATH"
 
-# if [[ -d $PYENV_ROOT/bin ]]; then
-#   export PATH="$PYENV_ROOT/bin:$PATH"
-#   eval "$(pyenv init - zsh)"
-# fi
+if [[ -d $PYENV_ROOT/bin ]]; then
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init - zsh)"
+fi
 
-# if [ -d "$FNM_PATH" ]; then
-#   eval "`fnm env`"
-# fi
+if [ -d "$FNM_PATH" ]; then
+  eval "`fnm env`"
+fi
 
-# if [[ -d "$CARGO_HOME" ]]; then
-#   source "$CARGO_HOME/env"
-# fi
+if [[ -d "$CARGO_HOME" ]]; then
+  source "$CARGO_HOME/env"
+fi
