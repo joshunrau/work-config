@@ -1,10 +1,10 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 30,
+  "height": 34,
   "margin-right": 16,
   "margin-left": 16,
-  "modules-left": ["hyprland/window"],
+  "modules-left": ["hyprland/window", "hyprland/workspaces"],
   "modules-right": ["cpu", "memory", "clock"],
   "clock": {
     "format": "{:%A %B %d  %H:%M}"
@@ -14,5 +14,11 @@
   },
   "memory": {
     "format": "Memory: {}%"
+  },
+  "hyprland/workspaces": {
+    "format": "{name}"
+  },
+  "hyprland/window": {
+    "format": "{initialTitle}"
   }
 }
