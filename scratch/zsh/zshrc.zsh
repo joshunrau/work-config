@@ -39,10 +39,10 @@ bindkey '^[[B' history-search-forward
 source $ZSH_ROOT/aliases.zsh
 
 # # SOURCE 3RD PARTY PLUGINS
-# source $ZSH_ROOT/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source $ZSH_ROOT/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source $ZSH_ROOT/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-# source $ZSH_ROOT/plugins/zsh-completions/zsh-completions.plugin.zsh
+source $ZSH_ROOT/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $ZSH_ROOT/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZSH_ROOT/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $ZSH_ROOT/plugins/zsh-completions/zsh-completions.plugin.zsh
 
 # LOAD COMPLETIONS
 autoload -U compinit

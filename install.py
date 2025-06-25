@@ -10,7 +10,10 @@ HOME_DIR = os.path.expanduser("~")
 SCRATCH_DIR = "/scratch/unrjos"
 
 GIT_REPOS = {
-    f"{SCRATCH_DIR}/zsh/plugins/zsh-autosuggestions": "https://github.com/zsh-users/zsh-autosuggestions"
+    f"{SCRATCH_DIR}/zsh/plugins/zsh-autosuggestions": "https://github.com/zsh-users/zsh-autosuggestions",
+    f"{SCRATCH_DIR}/zsh/plugins/zsh-syntax-highlighting": 'https://github.com/zsh-users/zsh-syntax-highlighting.git',
+    f"{SCRATCH_DIR}/zsh/plugins/zsh-history-substring-search":'https://github.com/zsh-users/zsh-history-substring-search.git',
+    f"{SCRATCH_DIR}/zsh/plugins/zsh-completions": 'https://github.com/zsh-users/zsh-completions.git'
 }
 
 
