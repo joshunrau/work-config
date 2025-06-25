@@ -26,14 +26,14 @@ setopt HIST_VERIFY               # Do not execute immediately upon history expan
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 
-# # SOURCE THEME
-# if [[ $ZSH_VERSION > 5.1 ]]; then
-#   if [[ -r "${XDG_CACHE_HOME}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#     source "${XDG_CACHE_HOME}/p10k-instant-prompt-${(%):-%n}.zsh"
-#   fi
-#   source $ZSH_ROOT/themes/powerlevel10k/powerlevel10k.zsh-theme
-#   source $ZSH_ROOT/p10k.zsh
-# fi
+# SOURCE THEME
+if [[ $ZSH_VERSION > 5.1 ]]; then
+  if [[ -r "${XDG_CACHE_HOME}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+    source "${XDG_CACHE_HOME}/p10k-instant-prompt-${(%):-%n}.zsh"
+  fi
+  source $ZSH_ROOT/themes/powerlevel10k/powerlevel10k.zsh-theme
+  source $ZSH_ROOT/p10k.zsh
+fi
 
 # ALIASES
 source $ZSH_ROOT/aliases.zsh
