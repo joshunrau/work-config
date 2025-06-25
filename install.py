@@ -1,12 +1,29 @@
 import os
+import subprocess
 import sys
+
+
+BASE_DIR = os.path.dirname(__file__)
+HOME_DIR = os.path.expanduser("~")
+SCRATCH_DIR = "/scratch/unrjos"
+
+GIT_REPOS = {
+    f"{SCRATCH_DIR}/zsh/plugins/zsh-autosuggestions": "https://github.com/zsh-users/zsh-autosuggestions"
+}
+
+
+def run_command(command: str) -> None:
+    result = subprocess.run(
+        command, shell=True, capture_output=True, text=True, check=True
+    )
+    result.check_returncode()
 
 
 def warn(message: str) -> None:
     print(f"\033[31mWARNING: {message}\033[0m", file=sys.stderr)
 
 
-def install(source_dir: str, target_dir: str) -> None:
+def install_symlinks(source_dir: str, target_dir: str) -> None:
     for source_path, _, source_files in os.walk(source_dir):
         target_path = target_dir + source_path.removeprefix(source_dir)
         if not os.path.exists(target_path):
@@ -30,11 +47,19 @@ def install(source_dir: str, target_dir: str) -> None:
                 print(f"Created Symlink: {target_file}")
 
 
+def install_git_repos() -> None:
+    for filepath, url in GIT_REPOS.items():
+        if not os.path.exists(filepath):
+            run_command(f"git clone {url} {filepath}")
+            assert os.path.isdir(filepath)
+            print(f'Cloned Repository: {filepath}')
+
+
 def main() -> None:
-    base_dir = os.path.dirname(__file__)
-    home_dir = os.path.expanduser("~")
-    install(f"{base_dir}/scratch", "/scratch/unrjos")
-    install(f"{base_dir}/home", home_dir)
+    install_symlinks(f"{BASE_DIR}/scratch", SCRATCH_DIR)
+    install_symlinks(f"{BASE_DIR}/home", HOME_DIR)
+    install_git_repos()
+
 
 
 if __name__ == "__main__":
