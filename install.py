@@ -12,6 +12,11 @@ GIT_REPOS = {
 }
 
 
+def files_are_equal(file1: str, file2: str):
+    with open(file1, 'rb') as f1, open(file2, 'rb') as f2:
+        return f1.read() == f2.read()
+
+
 def run_command(command: str) -> None:
     result = subprocess.run(
         command, shell=True, capture_output=True, text=True, check=True
