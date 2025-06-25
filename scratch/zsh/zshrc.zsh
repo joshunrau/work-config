@@ -32,7 +32,11 @@ if [[ $ZSH_VERSION > 5.1 ]]; then
     source "${XDG_CACHE_HOME}/p10k-instant-prompt-${(%):-%n}.zsh"
   fi
   source $ZSH_ROOT/themes/powerlevel10k/powerlevel10k.zsh-theme
-  source $ZSH_ROOT/p10k.zsh
+  if zmodload zsh/terminfo && (( terminfo[colors] >= 256 )); then
+    source $ZSH_ROOT/p10k.zsh
+  else
+    source $ZSH_ROOT/p10k.portable.zsh
+  fi
 fi
 
 # ALIASES
