@@ -8,7 +8,7 @@ def main() -> None:
     source_dir = f"{os.path.dirname(__file__)}/scratch"
     target_dir = "/scratch/unrjos"
 
-    base_dirs = ["etc"]
+    base_dirs = ["etc", "zsh"]
 
     for base_dir in base_dirs:
         for source_path, _, source_files in os.walk(f"{source_dir}/{base_dir}"):
