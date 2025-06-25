@@ -1,5 +1,15 @@
 {
   "layer": "bottom",
   "position": "top",
-  "height": 30
+  "height": 30,
+  "modules-right": ["cpu", "memory", "clock"],
+  "clock": {
+    "format": "{:%A %B %d  %H:%M}"
+  },
+  "cpu": {
+    "format": "CPU: {}%"
+  },
+  "memory": {
+    "format": "Memory: {}%"
+  }
 }
