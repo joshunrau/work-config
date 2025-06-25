@@ -1,7 +1,9 @@
 {
-  "layer": "bottom",
+  "layer": "top",
   "position": "top",
   "height": 30,
+  "margin-right": 16,
+  "margin-left": 16,
   "modules-right": ["cpu", "memory", "clock"],
   "clock": {
     "format": "{:%A %B %d  %H:%M}"
