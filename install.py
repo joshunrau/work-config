@@ -5,7 +5,7 @@ def warn(message: str) -> None:
     print(f"\033[31mWARNING: {message}\033[0m", file=sys.stderr)
     
 def main() -> None:
-    source_dir = os.path.dirname(__file__)
+    source_dir = f"{os.path.dirname(__file__)}/scratch"
     target_dir = "/scratch/unrjos"
 
     base_dirs = ["etc"]
@@ -20,16 +20,17 @@ def main() -> None:
             for filename in source_files:
                 source_file = f"{source_path}/{filename}"
                 target_file = f"{target_path}/{filename}"
-                if not os.path.exists(target_file):
-                    os.symlink(source_file, target_file)
-                    print(f"Created Symlink: {target_file}")
-                elif not os.path.islink(target_file):
-                    warn(f"Not a Symlink: {target_file}")
-                else:
+                if os.path.islink(target_file):
                     resolved_path = os.readlink(target_file)
                     if resolved_path != source_file:
                         warn(f"Unexpected Target for Symlink '{target_file}': {resolved_path}")
-
+                    continue
+                elif os.path.exists(target_file):
+                    warn(f"Not a Symlink: {target_file}")
+                else:
+                    os.symlink(source_file, target_file)
+                    print(f"Created Symlink: {target_file}")
+ 
 
 if __name__ == '__main__':
     main()
