@@ -27,7 +27,8 @@ def main() -> None:
                     warn(f"Not a Symlink: {target_file}")
                 else:
                     resolved_path = os.readlink(target_file)
-                    warn(f"Unexpected Target for Symlink '{target_file}': {resolved_path}")
+                    if resolved_path != source_file:
+                        warn(f"Unexpected Target for Symlink '{target_file}': {resolved_path}")
 
 
 if __name__ == '__main__':
