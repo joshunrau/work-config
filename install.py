@@ -39,6 +39,7 @@ def install_symlinks(source_dir: str, target_dir: str, overwrite: bool) -> None:
             if os.path.islink(target_file):
                 resolved_path = os.readlink(target_file)
                 if resolved_path == source_file:
+                    print(f'Symlink Points to Expected Target: {target_file} -> {source_file}')
                     continue
                 elif overwrite:
                     print(f"Deleting Existing Symlink: {target_file}")
@@ -61,10 +62,13 @@ def install_symlinks(source_dir: str, target_dir: str, overwrite: bool) -> None:
 
 def install_git_repos() -> None:
     for filepath, url in GIT_REPOS.items():
-        if not os.path.exists(filepath):
-            run_command(f"git clone {url} {filepath}")
-            assert os.path.isdir(filepath)
-            print(f"Cloned Repository: {filepath}")
+        if os.path.exists(filepath):
+            print(f'Already Installed: {filepath}')
+            continue
+        run_command(f"git clone {url} {filepath}")
+        assert os.path.isdir(filepath)
+        print(f"Cloned Repository: {filepath}")
+        
 
 
 def main() -> None:
@@ -73,7 +77,7 @@ def main() -> None:
     args = parser.parse_args()
     install_symlinks(f"{BASE_DIR}/scratch", SCRATCH_DIR, overwrite=args.overwrite)
     install_symlinks(f"{BASE_DIR}/home", HOME_DIR, overwrite=args.overwrite)
-    # install_git_repos()
+    install_git_repos()
 
 
 if __name__ == "__main__":
