@@ -4,6 +4,7 @@
 export SCRATCH_ROOT="/scratch/unrjos"
 export SCRATCH_BIN="$SCRATCH_ROOT/bin"
 export ZSH_ROOT="$SCRATCH_ROOT/zsh"
+export EDITOR=nvim
 
 # XDG
 export XDG_CONFIG_HOME="$SCRATCH_ROOT/etc"
