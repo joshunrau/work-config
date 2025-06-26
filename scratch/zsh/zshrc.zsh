@@ -23,8 +23,8 @@ setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history
 setopt HIST_VERIFY               # Do not execute immediately upon history expansion.
 
 # COMPLETION
-bindkey '^[[A' history-search-backward
-bindkey '^[[B' history-search-forward
+bindkey '^[OA' history-search-backward
+bindkey '^[OB' history-search-forward
 
 # SOURCE THEME
 if [[ $ZSH_VERSION > 5.1 ]]; then
