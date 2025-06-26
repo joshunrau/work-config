@@ -53,6 +53,7 @@ autoload -U compinit
 compinit
 
 
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="$SCRATCH_BIN:$PATH"
 
 if [[ -d $PYENV_ROOT/bin ]]; then
